@@ -10,10 +10,15 @@ import java.util.List;
 public class Libro {
 
     private int id;
+    private String photo;
     private String nombre;
     private String editorial;
     private String genero;
     private int autor;
+
+    public String getPhoto() { return photo; }
+
+    public void setPhoto(String photo) { this.photo = photo; }
 
     public void setId(int id){
         this.id = id;
@@ -70,6 +75,7 @@ public class Libro {
                 libro.setNombre(obj.getString("nombre"));
                 libro.setEditorial(obj.getString("editorial"));
                 libro.setGenero(obj.getString("genero"));
+                libro.setPhoto(obj.getString("photo"));
                 libro.setAutor(obj.getInt("autor"));
 
                 lista.add(libro);

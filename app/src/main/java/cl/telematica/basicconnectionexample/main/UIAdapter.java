@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -18,10 +21,12 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextView;
         public TextView mGeneroView;
+        public ImageView mPhotoView;
         public ViewHolder(View v) {
             super(v);
             mTextView = (TextView) v.findViewById(R.id.textName);
             mGeneroView = (TextView) v.findViewById(R.id.textGenero);
+            mPhotoView = (ImageView) v.findViewById(R.id.imagePhoto);
         }
     }
 
@@ -43,6 +48,11 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> {
 
         holder.mTextView.setText(libro.getNombre());
         holder.mGeneroView.setText(libro.getGenero());
+        Glide
+                .with(holder.mPhotoView.getContext())
+                .load(libro.getPhoto())
+                .into(holder.mPhotoView);
+
     }
 
     @Override
